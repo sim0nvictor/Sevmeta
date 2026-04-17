@@ -2,6 +2,7 @@ import StarField from "./StarField";
 import Doginaldogs from "../assets/image/Doginaldogs.png";
 import BMA from "../assets/image/BMA.png";
 import Typemedia from "../assets/image/Typemedia.png";
+import sevmedia from "../assets/image/sevmedia.png";
 
 /* Reusable Card Component */
 function CommunitiesCard({
@@ -18,9 +19,9 @@ function CommunitiesCard({
         <img
           src={img}
           alt={title}
-          className="mb-4 h-20 w-20 rounded-xl object-cover"
+          className="mx-auto mb-4 block h-20 w-20 rounded-xl object-cover"
         />
-        <h3 className="text-xl font-semibold text-white">{title}</h3>
+        <h3 className="text-xl font-semibold text-white text-center">{title}</h3>
       </a>
 
       <p className="mt-3 text-sm text-gray-300">{description}</p>
@@ -56,16 +57,16 @@ export default function Communities() {
       </div>
 
       {/* Logos */}
-      <div className="relative mt-10 flex justify-center gap-6">
-        {[Doginaldogs, BMA, Typemedia].map((logo, i) => (
+      <div className="relative mt-10 flex justify-center items-center gap-6">
+        {[Doginaldogs, BMA, Typemedia, sevmedia].map((logo, i) => (
           <div
             key={i}
-            className="hover:scale-110 transition-transform duration-300"
+            className="flex items-center justify-center hover:scale-110 transition-transform duration-300"
           >
             <img
               src={logo}
               alt="Community logo"
-              className="h-12 w-12 rounded-lg object-cover"
+              className="mx-auto h-12 w-12 rounded-lg object-cover"
             />
           </div>
         ))}
@@ -95,13 +96,23 @@ export default function Communities() {
           <CommunitiesCard
             title="Type Media"
             img={Typemedia}
-            href="https://www.typebrand.xyz/"
+            href="https://www.typebrand.net/"
             description="A Doginal Dogs sub-community, DAO, and marketing brand with top Web3 creators."
             buttonLabel="@Typemedia"
             buttonHref="https://x.com/typemedia?s=20"
+          />
+
+          <CommunitiesCard
+            title="Sevmedia"
+            img={sevmedia}
+            href="https://www.sevmedia.com/"
+            description="A community for personal development and growth and for all those who seek the truth."
+            buttonLabel="@sevmedia"
+            buttonHref="https://x.com/i/communities/2016109529386160574"
           />
         </div>
       </div>
     </section>
   );
 }
+

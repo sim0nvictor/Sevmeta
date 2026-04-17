@@ -1,4 +1,4 @@
-import { Code2, Brain, Box, Palette, AudioLines } from "lucide-react";
+import { Code2, Brain, TrendingUp, Layers, Megaphone, Wrench } from "lucide-react";
 import StarField from "./StarField";
 import sevmetax from "../assets/image/sevmetax.png"
 
@@ -18,6 +18,9 @@ export default function Skills() {
         <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-300">
            Curiosity driven and constantly learning new skills 
            Building cool stuff all along the way.
+           <br />
+
+           <br />
            <span className="text-pink-400">Study The Art of Science and Study the Science of Art</span>
         </p>
 
@@ -27,34 +30,37 @@ export default function Skills() {
         >
           <SkillsCard
             icon={<Code2 className="h-6 w-6 text-purple-400" />}
-            title="Frontend Development"
-            tags={["Html", "CSS", "JavaScript", "Tailwind Css", "React"]}
+            title="Building & Development"
+            tags={["Fullstack systems", "AI tools", "Web3 products", "Growth systems"]}
           />
 
           <SkillsCard
-            icon={<Brain className="h-6 w-6 text-green-400" />}
-            title="AI & Machine Learning"
-            tags={["Prompt Engineering", "Python", "Data Analysis", "ML Fundamentals"]}
+            icon={<TrendingUp className="h-6 w-6 text-green-400" />}
+            title="Growth & Strategy"
+            tags={["Traffic Generation", "Community Management", "Conversion Optimization", "Data Analysis"]}
           />
 
            <SkillsCard
-            icon={<Palette className="h-6 w-6 text-pink-400" />}
-            title="Design and Marketing"
-            tags={["UI/UX Design", "Graphic Design", "Content Creation", "Community Building"]}
+            icon={<Layers className="h-6 w-6 text-pink-400" />}
+            title="Scale"
+            tags={["Automation", "Data Analysis", "Iteration", "Community Building"]}
           />
 
           <SkillsCard
-            icon={<AudioLines className="h-6 w-6 text-blue-400" />}
-            title="Spaces Host on Twitter"
+            icon={<Megaphone className="h-6 w-6 text-blue-400" />}
+            title="Building personal brand"
             image={sevmetax}
-            buttonLabel={"@sevmetaX"}
-            buttonHref={"https://x.com/sevmetaX?s=20"}
+            buttonList={[
+              { label: "@sevmetaX", href: "https://x.com/sevmetaX?s=20" },
+              { label: "@sevmeta", href: "https://instagram.com/sevmeta" }
+            ]}
+            text={"Watch my stories and follow my journey as I build in public, share insight and learn."}
           />
 
           <SkillsCard
-            icon={<Box className="h-6 w-6 text-purple-400" />}
-            title="Web3 & Blockchain"
-            tags={["Solidity", "Web3.js", "NFTs", "Smart Contract", "DApp"]}
+            icon={<Wrench className="h-6 w-6 text-purple-400" />}
+            title="Capabilities"
+            text={"Designing systems that attract and retain users Combining engineering + growth into one loop Building with constraints (low resources, high leverage)"}
           />
         </div>
       </div>
@@ -62,7 +68,7 @@ export default function Skills() {
   );
 }
 
-function SkillsCard({ icon, title, buttonLabel, buttonHref, tags = [], image }) {
+function SkillsCard({ icon, title, buttonLabel, buttonHref, buttonList = [], tags = [], image, text }) {
   return (
     <div
       className="rounded-2xl border border-white/10 bg-white/5 p-8 text-left backdrop-blur
@@ -100,19 +106,40 @@ function SkillsCard({ icon, title, buttonLabel, buttonHref, tags = [], image }) 
         </div>
       )}
 
-      <div className="flex justify-center">
-      {buttonLabel && (
-        <a
-          href={buttonHref}
-          className="mt-6 inline-flex w-fit items-center justify-center rounded-lg
-                     border border-yellow-500/40 bg-yellow-500/10 px-4 py-2
-                     text-sm font-medium text-yellow-300 transition
-                     hover:bg-yellow-500/20 hover:text-yellow-200"
-        >
-          {buttonLabel}
-        </a>
+      {(buttonList.length > 0 || buttonLabel) && (
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          {buttonList.length > 0
+            ? buttonList.map((button, index) => (
+                <a
+                  key={index}
+                  href={button.href}
+                  className="inline-flex w-fit items-center justify-center rounded-lg
+                             border border-yellow-500/40 bg-yellow-500/10 px-4 py-2
+                             text-sm font-medium text-yellow-300 transition
+                             hover:bg-yellow-500/20 hover:text-yellow-200"
+                >
+                  {button.label}
+                </a>
+              ))
+            : buttonLabel && (
+                <a
+                  href={buttonHref}
+                  className="inline-flex w-fit items-center justify-center rounded-lg
+                             border border-yellow-500/40 bg-yellow-500/10 px-4 py-2
+                             text-sm font-medium text-yellow-300 transition
+                             hover:bg-yellow-500/20 hover:text-yellow-200"
+                >
+                  {buttonLabel}
+                </a>
+              )}
+        </div>
       )}
-      </div>
+
+      {text && (
+        <p className="mt-4 text-gray-300 text-sm">
+          {text}
+        </p>
+      )}
     </div>
   );
 }

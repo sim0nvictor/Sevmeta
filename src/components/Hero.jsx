@@ -21,10 +21,10 @@ export default function Hero() {
               alt="Sevlab logo"
               className="w-5 h-8 object-contain transition duration-300 group-hover:drop-shadow-[0_0_8px_rgba(99,102,241,0.6)]"/>
             <span className="bg-primary text-black text-xs px-2 py-1 rounded-full">
-              New
+              lab
             </span>
             <span className="text-sm text-gray-300 transition duration-300 group-hover:text-white">
-              Building the future of web3 →
+              View projects
             </span>
           </div>
         </a>
@@ -32,7 +32,7 @@ export default function Hero() {
         <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">
           Turning Ideas into<br />
           <span className="block text-primary mt-2">
-            beautiful web stories
+           Intellegent Systems
           </span>
         </h1>
 
@@ -68,8 +68,7 @@ export default function Hero() {
         </p>
 
         <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
-          Passionate about UI/UX design, blockchain development, and AI.
-          Building brands and communities in the web3 space.
+          I design and build AI powerd products, web3 experiences, and intelligent systems that solve real world problems.
         </p>
 
        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">

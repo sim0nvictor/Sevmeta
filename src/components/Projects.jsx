@@ -1,4 +1,4 @@
-import Sevlab from "../assets/image/Sevlab.png";
+import Sevlab from "../assets/image/SV.png";
 export default function Projects() {
     return (
         <section id="projects" className="relative py-24">

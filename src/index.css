@@ -1,10 +1,15 @@
 @import "tailwindcss";
 
 body {
-  @apply bg-black text-white;
+  @apply bg-black text-white overflow-x-hidden;
 }
 
-/* Star base */
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced star animations */
 .stars,
 .stars2,
 .stars3 {
@@ -14,7 +19,6 @@ body {
   animation: moveStars linear infinite;
 }
 
-/* Small stars */
 .stars {
   background-image: radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.8), transparent),
                     radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.6), transparent),
@@ -23,7 +27,6 @@ body {
   animation-duration: 120s;
 }
 
-/* Medium stars */
 .stars2 {
   background-image: radial-gradient(1.5px 1.5px at 50px 80px, rgba(139,92,246,0.8), transparent),
                     radial-gradient(1.5px 1.5px at 120px 60px, rgba(255,255,255,0.7), transparent);
@@ -31,14 +34,12 @@ body {
   animation-duration: 180s;
 }
 
-/* Large glowing stars */
 .stars3 {
   background-image: radial-gradient(2px 2px at 150px 100px, rgba(99,102,241,0.9), transparent);
   background-size: 400px 400px;
   animation-duration: 240s;
 }
 
-/* Slow vertical drift */
 @keyframes moveStars {
   from {
     transform: translateY(0);
@@ -46,4 +47,38 @@ body {
   to {
     transform: translateY(-1000px);
   }
+}
+
+/* Gradient text animation */
+@keyframes shimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% 200%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Glow effect */
+.glow {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.8);
+}
+
+/* Smooth transitions */
+.transition-smooth {
+  @apply transition-all duration-300 ease-out;
+}
+
+/* Card hover effect */
+.card-hover {
+  @apply hover:border-purple-500/50 hover:bg-purple-500/5 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300;
 }

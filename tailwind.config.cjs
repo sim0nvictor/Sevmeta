@@ -1,9 +1,20 @@
 module.exports = {
   content: [
+    "./src/**/*.{js,jsx}",
     "./index.html",
-    "./src/**/*.{js,jsx,ts,tsx}"
   ],
-  theme: { extend: {} },
+  theme: {
+    extend: {
+      colors: {
+        primary: "#6366f1",
+      },
+      animation: {
+        shimmer: "shimmer 3s ease-in-out infinite",
+      },
+      backdropBlur: {
+        xs: "2px",
+      },
+    },
+  },
   plugins: [],
 };
-

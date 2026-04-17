@@ -16,33 +16,55 @@ export default function About() {
           <h2 className="text-4xl font-bold tracking-tight text-white md:text-5xl text-center">
               About <span className="text-purple-500">Me</span>
           </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-purple-200 md:text-base">
+            I turn internet knowledge into real world systems.
+          </p>
 
            <div className="mx-auto mt-10 max-w-5xl flex flex-col md:flex-row items-center md:items-start gap-8">
-           {/* Image */}
-           <img
-               src={simon}
-               alt="simon"
-               className="
-               w-32 h-32 
-               rounded-full 
-               object-cover 
-               flex-shrink-0
-               border-4 border-purple-500/30
-               shadow-lg shadow-purple-500/20
-               hover:scale-105
-               transition-transform duration-300"
-            />
+             {/* Image */}
+             <div className="w-full md:w-1/2 rounded-3xl overflow-hidden border-4 border-purple-500/30 shadow-lg shadow-purple-500/20 transition-transform duration-300 hover:scale-105">
+               <img
+                 src={simon}
+                 alt="simon"
+                 className="w-full h-auto object-contain bg-black/5"
+               />
+             </div>
 
              {/* Text */}
-         <p className="text-lg text-gray-300 leading-relaxed">
-            I'm Simon Victor, a self-taught developer passionate about computer science
-            and programming, constantly learning and building.{" "}
-         <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-          Focused on creating elegant user experiences
-         </span>{" "}
-            while diving deep into blockchain technology, AI, and community building.
-         </p>
-        </div>
+             <div className="w-full md:w-1/2">
+               <p className="mx-auto max-w-xl text-lg text-gray-300 leading-relaxed md:mx-0 text-left">
+                  I'm Simon Emenike Victor, also known as  <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent font-semibold">SEV</span>. 
+                 I build digital systems that solve real-world problems.
+              
+                 <span>
+                  <br />
+                  <br />
+                 I believe in self-education, leverage, and creating value from first principles.
+                 <br />
+                 <br />
+                 Inspired by thinkers like <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent font-semibold">Leonardo da Vinci</span> and <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent font-semibold">Friedrich Nietzsche</span>,
+                 I focus on mastering multiple disciplines and turning ideas into execution.
+                 <br />
+                 <br />
+                 No traditional degree just the internet, relentless learning, and building.
+                 <br />
+                 <br />
+                 <div className="text-lg font-semibold">Right now I focus on:</div>
+                 <br />
+                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold">.Web3 Products</div>
+                 <br />
+                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold">.AI Applications</div>
+                 <br />
+                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold">.Growth systems</div>
+                 <br />
+                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold">.Scalable digital solutions</div>
+                 <br />
+                 <br />
+                 <span className="bg-gradient-to-r from-pink-400 to-indigo-500 bg-clip-text text-transparent font-semibold">If it solves a real problem, I'm interested in building it.</span>
+                 </span>
+               </p>
+             </div>
+           </div>
 
           <div className="mt-16 grid gap-8 md:grid-cols-3">
             <AboutCard
