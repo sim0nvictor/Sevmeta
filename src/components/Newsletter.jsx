@@ -3,7 +3,7 @@ import { useForm, ValidationError } from "@formspree/react";
 import { supabase } from '../lib/supabaseClient';
 
 export default function Newsletter() {
-  const [state, handleSubmit] = useForm("newsletter-signup"); // Replace with your Formspree form ID
+  const [state, handleSubmit] = useForm("https://formspree.io/f/xlgraoqe"); // Replace with your Formspree form ID
   const [email, setEmail] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
