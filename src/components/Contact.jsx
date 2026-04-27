@@ -37,7 +37,7 @@ export default function Contact() {
 function ContactsConnect() {
   return (
     <div className="rounded-xl border border-white/10 bg-zinc-900/80 p-6 shadow-lg">
-      <h3 className="mb-2 text-xl font-semibold text-yellow-400">
+      <h3 className="mb-2 text-xl font-semibold text-purple-400">
         Let’s Connect
       </h3>
 
@@ -108,9 +108,9 @@ function ContactsForm() {
   if (state.succeeded) {
     return (
       <div className="rounded-xl border border-white/10 bg-zinc-900/80 p-6 text-center shadow-lg">
-        <h3 className="text-xl font-semibold text-yellow-400">
+       <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent font-semibold">
           Message Sent
-        </h3>
+        </span>
         <p className="mt-2 text-gray-400">
           Thanks for reaching out. I’ll get back to you shortly.
         </p>
@@ -120,7 +120,7 @@ function ContactsForm() {
 
   return (
     <div className="rounded-xl border border-white/10 bg-zinc-900/80 p-6 shadow-lg">
-      <h3 className="mb-6 text-xl font-semibold text-yellow-400">
+      <h3 className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent font-semibold text-xl mb-4">
         Send a Message
       </h3>
 
@@ -158,7 +158,7 @@ function ContactsForm() {
         <button
           type="submit"
           disabled={state.submitting}
-          className="w-full rounded-md bg-yellow-400 py-3 font-semibold text-black transition hover:bg-yellow-300 disabled:opacity-50"
+          className="w-full rounded-md bg-gradient-to-r from-purple-400 to-indigo-500 py-3 font-semibold text-black transition hover:opacity-90 disabled:opacity-50"
         >
           Send Message
         </button>

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
 import { XIcon, InstagramIcon } from '../assets/icons.jsx';
+import Newsletter from './Newsletter';
 
 const defaultFeaturedShare = {
   id: 1,
@@ -341,6 +342,11 @@ export default function Blog() {
               )}
             </>
           )}
+        </div>
+
+        {/* Newsletter Signup */}
+        <div id="newsletter" className="mb-10">
+          <Newsletter />
         </div>
 
         {/* Social Highlights */}

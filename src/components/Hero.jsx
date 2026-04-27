@@ -1,4 +1,4 @@
-import Sevlab from "../assets/image/Sevlab.png";
+import SV from "../assets/image/SV.png";
 import emenike from "../assets/image/emenike.png";
 
 export default function Hero() {
@@ -17,8 +17,8 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10">
             <img
-              src={Sevlab}
-              alt="Sevlab logo"
+              src={SV}
+              alt="SV logo"
               className="w-5 h-8 object-contain transition duration-300 group-hover:drop-shadow-[0_0_8px_rgba(99,102,241,0.6)]"/>
             <span className="bg-primary text-black text-xs px-2 py-1 rounded-full">
               lab
@@ -39,7 +39,7 @@ export default function Hero() {
        <p className="mt-6 text-gray-400 flex items-center justify-center gap-2">
          <span>Hello, I’m</span>
 
-         <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent font-semibold">
+        <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent font-semibold">
            SEV
          </span>
 
