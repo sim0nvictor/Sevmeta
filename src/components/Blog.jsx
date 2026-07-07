@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
 import { XIcon, InstagramIcon } from '../assets/icons.jsx';
 import Newsletter from './Newsletter';
+import SocialEmbed from './SocialEmbed';
 
 const defaultFeaturedShare = {
   id: 1,
@@ -20,22 +21,19 @@ const getShareIcon = (platform) => {
   return platform.toLowerCase().includes('insta') ? InstagramIcon : XIcon;
 };
 
+// Real posts to embed live from Instagram / X / YouTube.
+// Just add the post URL here — the actual content, likes, and
+// comments are pulled live from the platform itself.
 const socialHighlights = [
   {
-    id: 'x-1',
-    platform: 'X',
-    title: 'Thread on DAO tooling and composability',
-    description: 'A short thread about building modular on-chain experiences and why composability matters.',
-    href: 'https://x.com/sevmetaX/status/2021649744242630809?s=20',
-    icon: XIcon,
+    id: 'ig-1',
+    platform: 'instagram',
+    url: 'https://www.instagram.com/p/CxYz12345/',
   },
   {
-    id: 'ig-1',
-    platform: 'Instagram',
-    title: 'Behind the scenes UI concept',
-    description: 'A reel showing the design process for the latest blog and brand visuals.',
-    href: 'https://www.instagram.com/p/CxYz12345/',
-    icon: InstagramIcon,
+    id: 'x-1',
+    platform: 'x',
+    url: 'https://x.com/sevmetaX/status/2021649744242630809',
   },
 ];
 
@@ -65,7 +63,7 @@ export default function Blog() {
         .from('posts')
         .select('id, title, excerpt, created_at, reading_time, image_urls, likes_count, comments_count')
         .order('created_at', { ascending: false })
-        .limit(3);   // Show only 3 latest posts on homepage
+        .limit(3); // Show only 3 latest posts on homepage
 
       if (!error) setRecentPosts(data || []);
       setLoading(false);
@@ -180,7 +178,6 @@ export default function Blog() {
     setDeleting(false);
   };
 
-
   const getFeaturedButtonText = () => {
     if (isEditing) return 'Cancel edit';
     return featuredShare.user_id ? 'Edit daily share' : 'Create daily share';
@@ -202,15 +199,16 @@ export default function Blog() {
             to="/blog"
             className="text-violet-400 hover:text-violet-300 font-medium flex items-center gap-2 group"
           >
-            View All Articles 
+            View All Articles
             <span className="group-hover:translate-x-1 transition">→</span>
           </Link>
         </div>
 
         {/* Featured Share */}
-
-        {/* Featured Share */}
-        <div className="mb-6 rounded-3xl border border-violet-500/20 bg-[#14141a] p-8 shadow-xl shadow-violet-500/10">
+        <div
+          className="mb-6 rounded-3xl border border-violet-500/20 bg-[#14141a] p-8 shadow-xl shadow-violet-500/10 animate-fade-in-up"
+          style={{ animationDelay: '0ms', animationFillMode: 'both' }}
+        >
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex items-center gap-4">
               <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-violet-500/10 text-violet-300">
@@ -219,7 +217,9 @@ export default function Blog() {
               <div>
                 <p className="text-xs uppercase tracking-[0.3em] text-gray-500">Featured Share</p>
                 <h3 className="text-2xl font-semibold text-white">{featuredShare.title}</h3>
-                <p className="text-sm text-gray-400 mt-2">Shared from {featuredShare.platform} by {featuredShare.author}</p>
+                <p className="text-sm text-gray-400 mt-2">
+                  Shared from {featuredShare.platform} by {featuredShare.author}
+                </p>
               </div>
             </div>
             <div className="flex flex-wrap items-center gap-3">
@@ -345,35 +345,25 @@ export default function Blog() {
         </div>
 
         {/* Newsletter Signup */}
-        <div id="newsletter" className="mb-10">
+        <div
+          id="newsletter"
+          className="mb-10 animate-fade-in-up"
+          style={{ animationDelay: '120ms', animationFillMode: 'both' }}
+        >
           <Newsletter />
         </div>
 
-        {/* Social Highlights */}
-        <div className="mb-10 grid gap-4 lg:grid-cols-2">
-          {socialHighlights.map((item) => {
-            const Icon = item.icon;
-            return (
-              <a
-                key={item.id}
-                href={item.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group block overflow-hidden rounded-3xl border border-gray-800 bg-[#111111] p-6 transition hover:border-violet-500/40"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-500/10 text-violet-300">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.3em] text-gray-500">{item.platform}</p>
-                    <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                  </div>
-                </div>
-                <p className="text-gray-400 leading-relaxed">{item.description}</p>
-              </a>
-            );
-          })}
+        {/* Social Highlights — real live embeds from Instagram / X / YouTube */}
+        <div
+          className="mb-10 animate-fade-in-up"
+          style={{ animationDelay: '240ms', animationFillMode: 'both' }}
+        >
+          <h3 className="text-xl font-semibold text-white mb-5">From Instagram &amp; X</h3>
+          <div className="grid gap-6 lg:grid-cols-2 min-w-0">
+            {socialHighlights.map((item) => (
+              <SocialEmbed key={item.id} platform={item.platform} url={item.url} />
+            ))}
+          </div>
         </div>
 
         {/* Posts Grid */}
@@ -391,17 +381,15 @@ export default function Blog() {
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {recentPosts.map((post) => {
+            {recentPosts.map((post, index) => {
               const firstImage = post.image_urls?.[0];
-              const shareLink = typeof window !== 'undefined'
-                ? `https://x.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(window.location.origin + '/blog/' + post.id)}`
-                : 'https://x.com';
 
               return (
                 <Link
                   key={post.id}
                   to={`/blog/${post.id}`}
-                  className="group bg-[#111111] border border-gray-800 hover:border-violet-500/30 rounded-3xl overflow-hidden transition-all duration-300"
+                  className="group bg-[#111111] border border-gray-800 hover:border-violet-500/30 rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1 animate-fade-in-up"
+                  style={{ animationDelay: `${360 + index * 100}ms`, animationFillMode: 'both' }}
                 >
                   {firstImage && (
                     <div className="h-48 bg-gray-900 overflow-hidden">

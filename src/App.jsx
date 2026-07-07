@@ -6,6 +6,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
+import Sevlab from "./components/Sevlab";
 import Communities from "./components/Communities";
 import Spaces from "./components/Spaces";
 import Contact from "./components/Contact";
@@ -32,6 +33,7 @@ export default function App() {
               <Skills />
               <Blog />
               <Projects />
+              <Sevlab />
               <Communities />
               <Spaces />
               <Contact />
@@ -45,6 +47,9 @@ export default function App() {
         <Route path="/create-post" element={<CreatePost />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<Navigate to="/" replace />} />
+        
+        <Route path="/sevlab" element={<Sevlab />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </>
   );

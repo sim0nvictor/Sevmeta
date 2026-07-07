@@ -33,7 +33,7 @@ export default function About() {
              {/* Text */}
              <div className="w-full md:w-1/2">
                <p className="mx-auto max-w-xl text-lg text-gray-300 leading-relaxed md:mx-0 text-left">
-                  I'm Simon Emenike Victor, also known as  <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent font-semibold">SEV</span>. 
+                  I'm Simon Emenike, also known as  <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent font-semibold">SEV</span>. 
                  I build digital systems that solve real-world problems.
               
                  <span>

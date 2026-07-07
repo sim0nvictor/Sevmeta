@@ -61,7 +61,7 @@ function ContactsConnect() {
         <div className="space-y-3">
           <SocialItem
             label="X (Twitter)"
-            sub="Reach out to me on X"
+            sub="Reach out to me on X (recommended)"
             icon={<XIcon className="h-5 w-5" />}
             href="https://x.com/sevmetaX?s=20"
           />

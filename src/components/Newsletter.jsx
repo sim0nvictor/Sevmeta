@@ -49,7 +49,7 @@ export default function Newsletter() {
   }
 
   return (
-    <div className="rounded-3xl border border-violet-500/20 bg-[#14141a] p-8">
+    <div className="rounded-3xl border border-violet-500/20 bg-[#14141a] p-8 transition-all duration-300 hover:border-violet-500/40 hover:shadow-lg hover:shadow-violet-500/10">
       <div className="text-center mb-6">
         <h3 className="text-2xl font-bold bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent mb-2">
           Stay Updated
@@ -73,7 +73,7 @@ export default function Newsletter() {
           <button
             type="submit"
             disabled={state.submitting || submitting}
-            className="rounded-2xl bg-gradient-to-r from-violet-500 to-purple-600 px-6 py-3 font-semibold text-white transition hover:from-violet-600 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+            className="rounded-2xl bg-gradient-to-r from-violet-500 to-purple-600 px-6 py-3 font-semibold text-white transition-all duration-200 hover:from-violet-600 hover:to-purple-700 hover:scale-[1.03] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 whitespace-nowrap"
           >
             {state.submitting || submitting ? 'Subscribing...' : 'Subscribe'}
           </button>

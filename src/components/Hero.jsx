@@ -1,5 +1,6 @@
 import SV from "../assets/image/SV.png";
 import emenike from "../assets/image/emenike.png";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -12,7 +13,8 @@ export default function Hero() {
 
         {/* Badge / Link */}
         <a
-          href="https://sevlab.dev"
+          href="https://sevlabx.xyz"
+          
           className="group inline-flex justify-center mb-8 transition-transform duration-300 hover:scale-95"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10">
