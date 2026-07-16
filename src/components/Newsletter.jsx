@@ -52,10 +52,10 @@ export default function Newsletter() {
     <div className="rounded-3xl border border-violet-500/20 bg-[#14141a] p-8 transition-all duration-300 hover:border-violet-500/40 hover:shadow-lg hover:shadow-violet-500/10">
       <div className="text-center mb-6">
         <h3 className="text-2xl font-bold bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent mb-2">
-          Stay Updated
+          Sevmeta Notes
         </h3>
         <p className="text-gray-400">
-          Get my daily thoughts, tutorials, and Web3 insights delivered straight to your inbox.
+          Get product updates, launch news, and Web3 insights from the Sevmeta portfolio delivered straight to your inbox.
         </p>
       </div>
 

@@ -48,11 +48,11 @@ export default function Communities() {
       {/* Header */}
       <div className="relative mx-auto max-w-6xl px-6 text-center">
         <h2 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
-          The Best <span className="text-purple-500">Communities</span>
+          Sevmeta <span className="text-purple-500">Communities</span>
         </h2>
 
         <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-300">
-          Join the best Web3 communities building the future together.
+          Communities and collaborators that power Sevmeta’s Web3, growth, and creator work.
         </p>
       </div>
 
@@ -79,7 +79,7 @@ export default function Communities() {
             title="Doginal Dogs"
             img={Doginaldogs}
             href="https://doginaldogs.com/"
-            description="A collection of 10,000 pixel art digitally inscribed on the Dogecoin blockchain."
+            description="A Web3 community for founders and creators, helping drive engagement and distribution for Sevmeta projects."
             buttonLabel="@doginaldogs"
             buttonHref="https://x.com/doginaldogs?s=20"
           />
@@ -88,7 +88,7 @@ export default function Communities() {
             title="BMA"
             img={BMA}
             href="https://barkmediaafrica.com/"
-            description="A Doginal Dogs sub-community focused on building and supporting Africa’s Web3 ecosystem."
+            description="A community network supporting African builders, creators, and Web3 growth projects aligned with Sevmeta’s mission."
             buttonLabel="@BarkMediaAfrica"
             buttonHref="https://x.com/BarkMediaAfrica?s=20"
           />
@@ -97,7 +97,7 @@ export default function Communities() {
             title="Type Media"
             img={Typemedia}
             href="https://www.typebrand.net/"
-            description="A Doginal Dogs sub-community, DAO, and marketing brand with top Web3 creators."
+            description="A creative network for brand, community, and product storytelling that supports Sevmeta’s creative growth work."
             buttonLabel="@Typemedia"
             buttonHref="https://x.com/typemedia?s=20"
           />
@@ -106,7 +106,7 @@ export default function Communities() {
             title="Sevmedia"
             img={sevmedia}
             href="https://www.sevmedia.com/"
-            description="A community for personal development and growth and for all those who seek the truth."
+            description="The creative and growth hub for Sevmeta, focusing on personal brand, product launches, and audience development."
             buttonLabel="@sevmedia"
             buttonHref="https://x.com/i/communities/2016109529386160574"
           />

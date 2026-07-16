@@ -9,8 +9,8 @@ const defaultFeaturedShare = {
   id: 1,
   platform: 'X',
   author: '@sevmetaX',
-  title: 'Featured daily share: The collision no one wants to admit',
-  description: 'A curated post from X highlighting a recent thread shared about product architecture, DAOs, and community-led growth.',
+  title: 'Sevmeta update: product strategy, growth, and Web3 systems',
+  description: 'A curated share from SEV discussing product architecture, AI tools, and community-driven growth for the Sevmeta portfolio.',
   href: 'https://x.com/sevmetaX/status/1701234567890123456',
   icon: XIcon,
   user_id: null,
@@ -190,9 +190,9 @@ export default function Blog() {
         <div className="flex justify-between items-end mb-12">
           <div>
             <h2 className="text-4xl font-bold bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent">
-              Latest from the Blog
+              Latest from Sevmeta
             </h2>
-            <p className="text-gray-400 mt-2">Thoughts, tutorials, and Web3 explorations</p>
+            <p className="text-gray-400 mt-2">Product updates, Web3 strategy, and portfolio stories from SEV.</p>
           </div>
 
           <Link

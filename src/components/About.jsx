@@ -14,10 +14,10 @@ export default function About() {
 
         <div className="relative mx-auto max-w-6xl px-6 text-center">
           <h2 className="text-4xl font-bold tracking-tight text-white md:text-5xl text-center">
-              About <span className="text-purple-500">Me</span>
+              About <span className="text-purple-500">Sevmeta</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm text-purple-200 md:text-base">
-            I turn internet knowledge into real world systems.
+            Sevmeta is the product portfolio of SEV, building Web3 products, AI systems, and growth infrastructure for builders and creators.
           </p>
 
            <div className="mx-auto mt-10 max-w-5xl flex flex-col md:flex-row items-center md:items-start gap-8">
@@ -33,34 +33,33 @@ export default function About() {
              {/* Text */}
              <div className="w-full md:w-1/2">
                <p className="mx-auto max-w-xl text-lg text-gray-300 leading-relaxed md:mx-0 text-left">
-                  I'm Simon Emenike, also known as  <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent font-semibold">SEV</span>. 
-                 I build digital systems that solve real-world problems.
+                  I'm Simon Emenike, also known as <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent font-semibold">SEV</span>.
+                  I build digital systems and products under the Sevmeta portfolio.
               
                  <span>
                   <br />
                   <br />
-                 I believe in self-education, leverage, and creating value from first principles.
+                 Sevmeta combines self-taught engineering, Web3 product design, AI systems, and growth strategy.
                  <br />
                  <br />
-                 Inspired by thinkers like <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent font-semibold">Leonardo da Vinci</span> and <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent font-semibold">Friedrich Nietzsche</span>,
-                 I focus on mastering multiple disciplines and turning ideas into execution.
+                 I focus on building products that make real-world impact and help other builders ship faster.
                  <br />
                  <br />
-                 No traditional degree just the internet, relentless learning, and building.
+                 No traditional degree—just relentless learning, experimentation, and execution.
                  <br />
                  <br />
-                 <div className="text-lg font-semibold">Right now I focus on:</div>
+                 <div className="text-lg font-semibold">Sevmeta is building:</div>
                  <br />
-                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold">.Web3 Products</div>
+                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold">Web3 product platforms</div>
                  <br />
-                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold">.AI Applications</div>
+                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold">AI-powered tools</div>
                  <br />
-                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold">.Growth systems</div>
+                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold">Growth systems</div>
                  <br />
-                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold">.Scalable digital solutions</div>
+                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold">Community and creator infrastructure</div>
                  <br />
                  <br />
-                 <span className="bg-gradient-to-r from-pink-400 to-indigo-500 bg-clip-text text-transparent font-semibold">If it solves a real problem, I'm interested in building it.</span>
+                 <span className="bg-gradient-to-r from-pink-400 to-indigo-500 bg-clip-text text-transparent font-semibold">If it solves a real problem, Sevmeta is building it.</span>
                  </span>
                </p>
              </div>

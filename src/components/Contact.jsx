@@ -42,7 +42,7 @@ function ContactsConnect() {
       </h3>
 
       <p className="mb-6 text-gray-400">
-        Ready to start your project? Reach out through any channel.
+        Ready to start a Sevmeta project? Reach out through any channel and let’s discuss your next product or launch.
       </p>
 
       {/* WhatsApp */}
@@ -56,7 +56,7 @@ function ContactsConnect() {
 
       {/* Socials */}
       <div>
-        <h3 className="mb-3 font-medium text-white">Follow Me</h3>
+          <h3 className="mb-3 font-medium text-white">Follow Sevmeta</h3>
 
         <div className="space-y-3">
           <SocialItem
