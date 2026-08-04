@@ -64,7 +64,7 @@ export default function Hero() {
            </span>
  
         <span className="text-sm text-gray-300">
-          Founder of Sevmeta
+          A full stack developer
         </span>
         </p>
         <p>
@@ -72,7 +72,7 @@ export default function Hero() {
         </p>
         <div className="mt-10 flex w-full max-w-xl flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
-            href="https://x.com/sevmetaX?s=20"
+            href="https://x.com/sevmeta?s=20"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="follow me on X"

@@ -28,13 +28,22 @@ export default function About() {
                  alt="simon"
                  className="w-full h-auto object-contain bg-black/5"
                />
+              <a
+                 href="https://x.com/sevmeta?s=20"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="mt-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent font-semibold hover:bg-pink-400"
+               >
+                 Follow me on X
+               </a>
              </div>
+
 
              {/* Text */}
              <div className="w-full md:w-1/2">
                <p className="mx-auto max-w-xl text-lg text-gray-300 leading-relaxed md:mx-0 text-left">
                   I'm Simon Emenike, also known as <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent font-semibold">SEV</span>.
-                  I build digital systems and products under the Sevmeta portfolio.
+                  I build digital systems and products That solve real-world problems. 
               
                  <span>
                   <br />
@@ -50,13 +59,13 @@ export default function About() {
                  <br />
                  <div className="text-lg font-semibold">Sevmeta is building:</div>
                  <br />
-                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold">Web3 product platforms</div>
+                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold"><a href="https://kelucalls.com" target="_blank" rel="noopener noreferrer">Web3 product platforms</a></div>
                  <br />
-                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold">AI-powered tools</div>
+                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold"><a href="https://sevmeta.xyz/sevlab" target="_blank" rel="noopener noreferrer">AI-powered tools</a></div>
                  <br />
-                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold">Growth systems</div>
+                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold"><a href="https://sevmeta.xyz/sevlab" target="_blank" rel="noopener noreferrer">Growth systems</a></div>
                  <br />
-                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold">Community and creator infrastructure</div>
+                 <div className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent font-semibold"><a href="https://sevlabx.xyz" target="_blank" rel="noopener noreferrer">Community and creator infrastructure</a></div>
                  <br />
                  <br />
                  <span className="bg-gradient-to-r from-pink-400 to-indigo-500 bg-clip-text text-transparent font-semibold">If it solves a real problem, Sevmeta is building it.</span>

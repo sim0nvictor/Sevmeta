@@ -8,10 +8,18 @@ import SocialEmbed from './SocialEmbed';
 const defaultFeaturedShare = {
   id: 1,
   platform: 'X',
-  author: '@sevmetaX',
+  author: '@kelucalls',
+  title: 'Why Crypto Traders Need an Information Edge: Introducing Kelucalls',
+  description: 'A curated share from SEV discussing product architecture, AI tools, and community-driven growth for the Sevmeta portfolio.',
+  href: 'https://x.com/kelucalls/status/2081719446440235109?s=20',
+  icon: XIcon,
+  user_id: null,
+  id: 2,
+  platform: 'X',
+  author: '@sevmeta',
   title: 'Sevmeta update: product strategy, growth, and Web3 systems',
   description: 'A curated share from SEV discussing product architecture, AI tools, and community-driven growth for the Sevmeta portfolio.',
-  href: 'https://x.com/sevmetaX/status/1701234567890123456',
+  href: 'https://x.com/sevmeta/status/2021649744242630809?s=20',
   icon: XIcon,
   user_id: null,
 };
@@ -25,15 +33,20 @@ const getShareIcon = (platform) => {
 // Just add the post URL here — the actual content, likes, and
 // comments are pulled live from the platform itself.
 const socialHighlights = [
-  {
-    id: 'ig-1',
-    platform: 'instagram',
-    url: 'https://www.instagram.com/p/CxYz12345/',
-  },
-  {
+{
     id: 'x-1',
     platform: 'x',
+    url: 'https://x.com/kelucalls/status/2081719446440235109?s=20'
+  },
+  {
+    id: 'x-2',
+    platform: 'x',
     url: 'https://x.com/sevmetaX/status/2021649744242630809',
+  },
+    {
+    id: 'ig-1',
+    platform: 'instagram',
+    url: 'https://www.instagram.com/reel/DTYP7CTDE2Q/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
   },
 ];
 

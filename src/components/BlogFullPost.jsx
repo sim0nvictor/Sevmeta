@@ -16,6 +16,7 @@ const buildShareUrl = (platform, title, url) => {
       return `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedText}`;
     default:
       return url;
+
   }
 };
 
