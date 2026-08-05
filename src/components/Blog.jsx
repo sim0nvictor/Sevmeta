@@ -46,7 +46,7 @@ const socialHighlights = [
     {
     id: 'ig-1',
     platform: 'instagram',
-    url: 'https://www.instagram.com/reel/DTYP7CTDE2Q/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
+    url: 'https://www.instagram.com/p/DbqDvlIjClT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
   },
 ];
 
