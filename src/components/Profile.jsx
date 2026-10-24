@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
 
 const defaultProfile = {
@@ -18,7 +18,7 @@ export default function Profile() {
   const [error, setError] = useState('');
   const [realtimeConnected, setRealtimeConnected] = useState(false);
 
-  const mergeProfile = (profileData, authUser) => {
+  const mergeProfile = useCallback((profileData, authUser) => {
     if (!authUser) return profileData || defaultProfile;
 
     return {
@@ -28,9 +28,9 @@ export default function Profile() {
       location: profileData?.location || authUser.user_metadata?.location || '',
       avatar_url: profileData?.avatar_url || authUser.user_metadata?.avatar_url || '',
     };
-  };
+  }, []);
 
-  const loadCurrentUser = async () => {
+  const loadCurrentUser = useCallback(async () => {
     setLoading(true);
     const { data: authData, error: authError } = await supabase.auth.getUser();
     if (authError) {
@@ -39,7 +39,7 @@ export default function Profile() {
       return;
     }
 
-    const currentUser = authData?.data?.user || null;
+    const currentUser = authData?.user || null;
     setUser(currentUser);
 
     if (!currentUser) {
@@ -84,16 +84,21 @@ export default function Profile() {
     }
 
     setLoading(false);
-  };
+  }, [mergeProfile]);
 
   useEffect(() => {
-    loadCurrentUser();
+    let active = true;
+    Promise.resolve().then(() => {
+      if (active) return loadCurrentUser();
+    });
 
     const { data: authListener } = supabase.auth.onAuthStateChange((_, session) => {
       const authUser = session?.user || null;
       setUser(authUser);
       if (authUser) {
-        loadCurrentUser();
+        Promise.resolve().then(() => {
+          if (active) return loadCurrentUser();
+        });
       } else {
         setProfile(null);
         setForm(defaultProfile);
@@ -101,9 +106,10 @@ export default function Profile() {
     });
 
     return () => {
+      active = false;
       authListener?.subscription?.unsubscribe?.();
     };
-  }, []);
+  }, [loadCurrentUser]);
 
   useEffect(() => {
     if (!user) return;
@@ -126,7 +132,7 @@ export default function Profile() {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [user]);
+  }, [mergeProfile, user]);
 
   const handleInputChange = (field) => (event) => {
     setForm((prev) => ({ ...prev, [field]: event.target.value }));

@@ -1,41 +1,49 @@
-# React + Vite
+# Sevmeta
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sevmeta is the portfolio of SEV (Simon Emenike), showcasing digital products,
+Web3 and AI projects, and services for businesses and builders.
 
-Currently, two official plugins are available:
+**Live site:** [sevmeta.xyz](https://sevmeta.xyz)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What’s inside
 
-## React Compiler
+- Portfolio sections for projects, skills, communities, and the creator
+- Website-as-a-service information and inquiry page
+- Product and community links, blog, and profile pages
+- English and French translations
+- Light and dark themes
+- Responsive layouts for desktop and mobile
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Run locally
 
-## Expanding the ESLint configuration
+Requirements: Node.js and npm.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
 
-## Newsletter Feature Setup
+Vite prints a local URL in the terminal when the development server is ready.
 
-The project includes a newsletter subscription feature that allows visitors to subscribe for daily updates.
+## Available commands
 
-### Database Setup
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the local development server |
+| `npm run lint` | Check the code with ESLint |
+| `npm run build` | Create a production build in `dist/` |
+| `npm run preview` | Preview the production build locally |
 
-1. Run the SQL script in `database_setup.sql` in your Supabase SQL Editor to create the newsletter subscribers table.
+## Integrations
 
-### Formspree Setup
+Some features use Supabase and Formspree. Configure the project credentials and
+provider settings for your own deployment before enabling those features.
+Never commit private credentials; use public client-side keys only where the
+provider explicitly supports them.
 
-1. Go to [Formspree](https://formspree.io) and create a new form for newsletter subscriptions
-2. Copy the form ID (looks like `newsletter-signup`)
-3. Update the form ID in `src/components/Newsletter.jsx`:
-   ```javascript
-   const [state, handleSubmit] = useForm("your-actual-form-id");
-   ```
+## Project structure
 
-### Features
-
-- Email validation and duplicate prevention
-- Integration with Supabase for subscriber management
-- Formspree integration for email delivery
-- Responsive design matching the site's theme
-- Success confirmation with visual feedback
+- `src/components/` — page sections and reusable interface components
+- `src/lib/` — shared utilities and internationalization
+- `src/App.jsx` — application routes and page composition
+- `src/main.jsx` — application entry point

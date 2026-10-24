@@ -1,0 +1,670 @@
+.website-service {
+  --service-bg: #0b0e14;
+  --service-surface: #111722;
+  --service-surface-raised: #161e2b;
+  --service-text: #eef1f8;
+  --service-muted: #a6afc0;
+  --service-border: rgba(184, 196, 220, 0.14);
+  --service-accent: #a78bfa;
+  --service-accent-strong: #8b5cf6;
+  color: var(--service-text);
+  background: var(--service-bg);
+  padding-bottom: 1px;
+}
+
+#website-as-service {
+  scroll-margin-top: 90px;
+}
+
+html[data-theme="light"] .website-service {
+  --service-bg: #f7f8fc;
+  --service-surface: #ffffff;
+  --service-surface-raised: #f0f2f8;
+  --service-text: #202436;
+  --service-muted: #616b7d;
+  --service-border: rgba(47, 55, 78, 0.14);
+  --service-accent: #7048c8;
+  --service-accent-strong: #6139b8;
+}
+
+.website-service * {
+  box-sizing: border-box;
+}
+
+.website-service .wrap {
+  width: min(1120px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.website-service .service-nav {
+  position: sticky;
+  top: 76px;
+  z-index: 20;
+  border-bottom: 1px solid var(--service-border);
+  background: color-mix(in srgb, var(--service-bg) 92%, transparent);
+  backdrop-filter: blur(14px);
+}
+
+.website-service .service-nav .wrap,
+.website-service .navr {
+  display: flex;
+  align-items: center;
+}
+
+.website-service .service-nav .wrap {
+  min-height: 72px;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.website-service .brand {
+  color: var(--service-text);
+  font-size: 1.2rem;
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+}
+
+.website-service .navr {
+  gap: 24px;
+}
+
+.website-service .link {
+  color: var(--service-muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.website-service .link:hover {
+  color: var(--service-text);
+}
+
+.website-service .mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.77rem;
+  letter-spacing: 0.035em;
+}
+
+.website-service .hero {
+  padding: 88px 0 72px;
+}
+
+.website-service .hero > .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(330px, 0.9fr);
+  align-items: center;
+  gap: 56px;
+}
+
+.website-service .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 13px;
+  border: 1px solid var(--service-border);
+  border-radius: 999px;
+  color: var(--service-accent);
+  background: var(--service-surface);
+  text-transform: uppercase;
+}
+
+.website-service .pill i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #72d6a0;
+  box-shadow: 0 0 12px rgba(114, 214, 160, 0.6);
+}
+
+.website-service h1,
+.website-service h2,
+.website-service h3,
+.website-service p {
+  margin-top: 0;
+}
+
+.website-service h1 {
+  max-width: 700px;
+  margin-bottom: 20px;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.065em;
+}
+
+.website-service .sub {
+  max-width: 610px;
+  margin-bottom: 26px;
+  color: var(--service-muted);
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.website-service .cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.website-service .btn {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border: 1px solid var(--service-accent-strong);
+  border-radius: 12px;
+  color: white;
+  background: var(--service-accent-strong);
+  font: inherit;
+  font-weight: 650;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.website-service .btn:hover {
+  transform: translateY(-2px);
+  background: var(--service-accent);
+}
+
+.website-service .btn.sm {
+  min-height: 40px;
+  padding: 9px 15px;
+  font-size: 0.88rem;
+}
+
+.website-service .btn.plain {
+  color: var(--service-text);
+  border-color: var(--service-border);
+  background: transparent;
+}
+
+.website-service .btn.plain:hover {
+  background: var(--service-surface-raised);
+}
+
+.website-service .trust {
+  margin: 22px 0 0;
+  color: var(--service-muted);
+}
+
+.website-service .dash {
+  padding: 22px;
+  border: 1px solid var(--service-border);
+  border-radius: 22px;
+  background: linear-gradient(145deg, var(--service-surface-raised), var(--service-surface));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.2);
+}
+
+.website-service .dh,
+.website-service .metrics,
+.website-service .spark .top,
+.website-service .dfoot,
+.website-service .price {
+  display: flex;
+  align-items: center;
+}
+
+.website-service .dh,
+.website-service .spark .top {
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.website-service .dh {
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--service-border);
+  color: var(--service-muted);
+}
+
+.website-service .live {
+  color: #55c98a;
+}
+
+.website-service .metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 18px 0;
+}
+
+.website-service .metrics > div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 7px 12px;
+  padding: 13px;
+  border: 1px solid var(--service-border);
+  border-radius: 13px;
+  background: color-mix(in srgb, var(--service-surface) 76%, transparent);
+}
+
+.website-service .metrics span {
+  grid-column: 1 / -1;
+  color: var(--service-muted);
+}
+
+.website-service .metrics strong {
+  font-size: 1.45rem;
+}
+
+.website-service .metrics small {
+  align-self: end;
+  color: var(--service-muted);
+}
+
+.website-service .spark {
+  padding: 14px;
+  border: 1px solid var(--service-border);
+  border-radius: 14px;
+  background: var(--service-surface);
+}
+
+.website-service .spark .top {
+  color: var(--service-muted);
+}
+
+.website-service .spark em {
+  color: #55c98a;
+  font-style: normal;
+}
+
+.website-service .spark svg {
+  display: block;
+  width: 100%;
+  height: 86px;
+  margin-top: 15px;
+}
+
+.website-service .dfoot {
+  margin-top: 16px;
+  gap: 8px;
+  color: var(--service-accent);
+  font-size: 0.86rem;
+}
+
+.website-service .note {
+  margin: 14px 0 0;
+  color: var(--service-muted);
+  font-size: 0.78rem;
+}
+
+.website-service .rule {
+  width: min(1120px, calc(100% - 40px));
+  height: 1px;
+  margin: 0 auto;
+  border: 0;
+  background: var(--service-border);
+}
+
+.website-service section {
+  padding: 76px 0;
+}
+
+.website-service .head {
+  max-width: 690px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.website-service .head > .mono {
+  color: var(--service-accent);
+  text-transform: uppercase;
+}
+
+.website-service h2 {
+  margin: 12px 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.05em;
+}
+
+.website-service .head p,
+.website-service .card p,
+.website-service .for,
+.website-service .about p {
+  color: var(--service-muted);
+  line-height: 1.7;
+}
+
+.website-service .cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.website-service .card,
+.website-service .plan {
+  border: 1px solid var(--service-border);
+  border-radius: 18px;
+  background: var(--service-surface);
+}
+
+.website-service .card {
+  padding: 23px;
+}
+
+.website-service .ico {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 18px;
+  place-items: center;
+  border-radius: 12px;
+  color: var(--service-accent);
+  background: color-mix(in srgb, var(--service-accent-strong) 15%, transparent);
+  font-size: 1.25rem;
+}
+
+.website-service .card h3,
+.website-service .plan h3 {
+  margin-bottom: 8px;
+  font-size: 1.12rem;
+}
+
+.website-service .card p {
+  margin-bottom: 0;
+  font-size: 0.94rem;
+}
+
+.website-service .who {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 11px;
+}
+
+.website-service .who span {
+  padding: 11px 15px;
+  border: 1px solid var(--service-border);
+  border-radius: 999px;
+  color: var(--service-muted);
+  background: var(--service-surface);
+  font-size: 0.9rem;
+}
+
+.website-service .plans {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 17px;
+}
+
+.website-service .plan {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.website-service .plan.hot {
+  border-color: var(--service-accent-strong);
+  box-shadow: 0 0 0 1px var(--service-accent-strong);
+}
+
+.website-service .for {
+  min-height: 52px;
+  margin-bottom: 17px;
+}
+
+.website-service .price {
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 17px;
+  font-size: 2.3rem;
+  font-weight: 750;
+  letter-spacing: -0.05em;
+}
+
+.website-service .price small {
+  color: var(--service-muted);
+  font-size: 0.78rem;
+  font-weight: 450;
+  letter-spacing: 0;
+}
+
+.website-service .plan ul {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 24px;
+  padding: 0;
+  color: var(--service-muted);
+  list-style: none;
+}
+
+.website-service .plan li::before {
+  content: "✓";
+  margin-right: 9px;
+  color: #55c98a;
+}
+
+.website-service .plan .btn {
+  width: 100%;
+  margin-top: auto;
+}
+
+.website-service .fine {
+  margin: 24px 0 0;
+  color: var(--service-muted);
+  text-align: center;
+}
+
+.website-service .steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: service-step;
+}
+
+.website-service .steps li {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  padding: 21px;
+  border: 1px solid var(--service-border);
+  border-radius: 16px;
+  background: var(--service-surface);
+  counter-increment: service-step;
+}
+
+.website-service .steps li::before {
+  content: "0" counter(service-step);
+  color: var(--service-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.website-service .steps span {
+  color: var(--service-muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.website-service .about {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+  align-items: center;
+  gap: 44px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.website-service .photo {
+  position: relative;
+  display: grid;
+  min-height: 260px;
+  overflow: hidden;
+  place-items: center;
+  border-radius: 22px;
+  background: var(--service-surface);
+}
+
+.website-service .photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.website-service .about h2 {
+  margin-top: 0;
+}
+
+.website-service .about a {
+  color: var(--service-accent);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.website-service .about a:hover {
+  text-decoration: underline;
+}
+
+.website-service .form {
+  display: grid;
+  gap: 18px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 25px;
+  border: 1px solid var(--service-border);
+  border-radius: 20px;
+  background: var(--service-surface);
+}
+
+.website-service .two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.website-service .form label {
+  display: grid;
+  gap: 8px;
+  color: var(--service-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.website-service .form input,
+.website-service .form select,
+.website-service .form textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 13px;
+  border: 1px solid var(--service-border);
+  border-radius: 10px;
+  color: var(--service-text);
+  background: var(--service-bg);
+  font: inherit;
+}
+
+.website-service .form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.website-service .form input:focus,
+.website-service .form select:focus,
+.website-service .form textarea:focus {
+  outline: 2px solid var(--service-accent);
+  outline-offset: 2px;
+}
+
+.website-service > footer {
+  border-top: 1px solid var(--service-border);
+  color: var(--service-muted);
+}
+
+.website-service > footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 25px;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 800px) {
+  .website-service .hero > .wrap {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .website-service .cards,
+  .website-service .plans {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .website-service .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .website-service .about {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .website-service .photo {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 560px) {
+  .website-service .wrap,
+  .website-service .rule {
+    width: min(100% - 30px, 1120px);
+  }
+
+  .website-service .service-nav {
+    top: 68px;
+  }
+
+  .website-service .service-nav .wrap {
+    min-height: 62px;
+  }
+
+  .website-service .navr {
+    gap: 12px;
+  }
+
+  .website-service .navr .link {
+    display: none;
+  }
+
+  .website-service .hero {
+    padding: 58px 0;
+  }
+
+  .website-service .hero > .wrap {
+    gap: 30px;
+  }
+
+  .website-service h1 {
+    font-size: clamp(2.5rem, 13vw, 3.8rem);
+  }
+
+  .website-service section {
+    padding: 58px 0;
+  }
+
+  .website-service .cards,
+  .website-service .plans,
+  .website-service .steps,
+  .website-service .two {
+    grid-template-columns: 1fr;
+  }
+
+  .website-service .for {
+    min-height: 0;
+  }
+
+  .website-service .form {
+    padding: 18px;
+  }
+
+  .website-service > footer .wrap {
+    flex-direction: column;
+  }
+}

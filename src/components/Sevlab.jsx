@@ -10,6 +10,7 @@ import {
   Clock3,
   Hammer,
 } from "lucide-react";
+import { useI18n } from "../lib/i18n-context";
 
 import Nimble from "../assets/image/Nimble.png";
 import KeluCalls from "../assets/image/kelucalls.png";
@@ -101,12 +102,7 @@ function ProductButton({ label, link, variant }) {
 
   if (link) {
     return (
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={baseClasses}
-      >
+      <a href={link} target="_blank" rel="noopener noreferrer" className={baseClasses}>
         {label}
         {variant === "secondary" && <ArrowUpRight className="ml-2 h-4 w-4" />}
       </a>
@@ -122,88 +118,56 @@ function ProductButton({ label, link, variant }) {
 }
 
 export default function Sevlab() {
+  const { t } = useI18n();
+
   return (
     <section id="products" className="relative overflow-hidden py-24">
       <StarField />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
-        {/* HERO */}
         <div className="mx-auto max-w-3xl text-center">
           <div className="mb-6 inline-flex items-center rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm text-cyan-400">
             <Hammer className="mr-2 h-4 w-4" />
-            Sevmeta product portfolio
+            {t("products.portfolio")}
           </div>
 
-          <h2 className="text-5xl font-bold tracking-tight text-white md:text-6xl">
-            Products & Portfolio
-          </h2>
-
-          <p className="mt-8 text-lg leading-8 text-gray-400">
-            This is the Sevmeta product portfolio. These are the Web3, AI, and growth products SEV is building for communities and builders.
-          </p>
+          <h2 className="text-5xl font-bold tracking-tight text-white md:text-6xl">{t("products.title")}</h2>
+          <p className="mt-8 text-lg leading-8 text-gray-400">{t("products.description")}</p>
         </div>
 
-        {/* FEATURED */}
         <div className="mt-24 space-y-10">
-          {featuredProducts.map((product) => (
-            <div
-              key={product.name}
-              className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur transition-all duration-300 hover:border-cyan-500/30"
-            >
+          {featuredProducts.map((product, index) => (
+            <div key={product.name} className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur transition-all duration-300 hover:border-cyan-500/30">
               <div className="grid gap-12 lg:grid-cols-2">
-                {/* Screenshot */}
                 <div className="flex items-center justify-center p-10">
                   <div className="flex aspect-video w-full items-center justify-center rounded-2xl border border-dashed border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-transparent">
                     <div className="text-center">
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="full h-auto w-full rounded-lg"
-                      />
+                      <img src={product.image} alt={product.name} className="h-auto w-full rounded-lg" />
                       <p className="text-gray-500">{product.name}</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Content */}
                 <div className="flex flex-col justify-center p-10">
-                  <div
-                    className={`mb-6 inline-flex w-fit rounded-full border px-4 py-1 text-sm ${product.statusColor}`}
-                  >
-                    {product.status}
+                  <div className={`mb-6 inline-flex w-fit rounded-full border px-4 py-1 text-sm ${product.statusColor}`}>
+                    {t("products.statuses")[index] || product.status}
                   </div>
 
-                  <h3 className="text-4xl font-bold text-white">
-                    {product.name}
-                  </h3>
-
-                  <p className="mt-6 leading-8 text-gray-400">
-                    {product.description}
-                  </p>
+                  <h3 className="text-4xl font-bold text-white">{product.name}</h3>
+                  <p className="mt-6 leading-8 text-gray-400">{product.description}</p>
 
                   <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                    {product.features.map((feature) => (
-                      <div
-                        key={feature}
-                        className="flex items-center text-gray-300"
-                      >
+                    {product.features.map((feature, featureIndex) => (
+                      <div key={feature} className="flex items-center text-gray-300">
                         <CheckCircle2 className="mr-3 h-5 w-5 text-cyan-400" />
-                        {feature}
+                        {t("products.features")[featureIndex] || feature}
                       </div>
                     ))}
                   </div>
 
                   <div className="mt-10 flex flex-wrap gap-4">
-                    <ProductButton
-                      label={product.primary}
-                      link={product.primaryLink}
-                      variant="primary"
-                    />
-                    <ProductButton
-                      label={product.secondary}
-                      link={product.secondaryLink}
-                      variant="secondary"
-                    />
+                    <ProductButton label={index === 0 ? t("products.visit") : t("products.joinWaitlist")} link={product.primaryLink} variant="primary" />
+                    <ProductButton label={t("products.learnMore")} link={product.secondaryLink} variant="secondary" />
                   </div>
                 </div>
               </div>
@@ -211,34 +175,19 @@ export default function Sevlab() {
           ))}
         </div>
 
-        {/* MORE PROJECTS */}
         <div className="mt-28">
-          <h3 className="mb-10 text-center text-3xl font-bold text-white">
-            More Projects
-          </h3>
-
+          <h3 className="mb-10 text-center text-3xl font-bold text-white">{t("products.moreProjects")}</h3>
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {projects.map((project) => {
+            {projects.map((project, index) => {
               const Icon = project.icon;
-
               return (
-                <div
-                  key={project.name}
-                  className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition hover:-translate-y-2 hover:border-cyan-500/30"
-                >
+                <div key={project.name} className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition hover:-translate-y-2 hover:border-cyan-500/30">
                   <Icon className={`mb-6 h-10 w-10 ${project.color}`} />
-
-                  <h4 className="text-xl font-semibold text-white">
-                    {project.name}
-                  </h4>
-
-                  <p className="mt-3 text-sm leading-7 text-gray-400">
-                    {project.description}
-                  </p>
-
+                  <h4 className="text-xl font-semibold text-white">{project.name}</h4>
+                  <p className="mt-3 text-sm leading-7 text-gray-400">{project.description}</p>
                   <div className="mt-6 flex items-center text-sm text-gray-500">
                     <Clock3 className="mr-2 h-4 w-4" />
-                    {project.status}
+                    {t("products.statuses")[index] || project.status}
                   </div>
                 </div>
               );
@@ -246,55 +195,26 @@ export default function Sevlab() {
           </div>
         </div>
 
-        {/* PHILOSOPHY */}
         <div className="mx-auto mt-32 max-w-4xl rounded-3xl border border-cyan-500/10 bg-gradient-to-r from-cyan-500/5 to-transparent p-12 text-center">
-          <h3 className="text-3xl font-bold text-white">Building Philosophy</h3>
-
-          <p className="mt-8 text-lg leading-9 text-gray-300">
-            I don't build products just to launch them.
-          </p>
-
-          <p className="mt-4 text-lg leading-9 text-gray-400">
-            I build software that solves problems I'd personally want solved.
-            Every project teaches me something new about engineering, design,
-            marketing, and creating experiences that people genuinely enjoy.
-          </p>
+          <h3 className="text-3xl font-bold text-white">{t("products.philosophy")}</h3>
+          <p className="mt-8 text-lg leading-9 text-gray-300">{t("products.philosophyLead")}</p>
+          <p className="mt-4 text-lg leading-9 text-gray-400">{t("products.philosophyBody")}</p>
         </div>
 
-        {/* STATS */}
         <div className="mt-24 grid gap-6 md:grid-cols-4">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-center"
-            >
-              <h4 className="text-5xl font-bold text-cyan-400">
-                {stat.value}
-              </h4>
-
-              <p className="mt-4 text-gray-400">{stat.label}</p>
+          {t("products.stats").map((stat, index) => (
+            <div key={stat} className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-center">
+              <h4 className="text-5xl font-bold text-cyan-400">{stats[index]?.value ?? ""}</h4>
+              <p className="mt-4 text-gray-400">{stat}</p>
             </div>
           ))}
         </div>
 
-        {/* CTA */}
         <div className="mx-auto mt-32 max-w-4xl text-center">
-          <h3 className="text-4xl font-bold text-white">
-            Interested in working together?
-          </h3>
-
-          <p className="mt-6 text-lg leading-8 text-gray-400">
-            Whether it's building software, collaborating on a startup, or
-            discussing new ideas, I'm always excited to connect with other
-            builders.
-          </p>
+          <h3 className="text-4xl font-bold text-white">{t("products.interested")}</h3>
+          <p className="mt-6 text-lg leading-8 text-gray-400">{t("products.connect")}</p>
           <div>
-            <Link
-              to="/contact"
-              className="mt-8 inline-flex items-center rounded-lg bg-cyan-500 px-6 py-3 text-lg font-medium text-black transition hover:bg-cyan-400"
-            >
-              Get in Touch
-            </Link>
+            <Link to="/contact" className="mt-8 inline-flex items-center rounded-lg bg-cyan-500 px-6 py-3 text-lg font-medium text-black transition hover:bg-cyan-400">{t("products.contact")}</Link>
           </div>
         </div>
       </div>

@@ -64,7 +64,6 @@ function InstagramEmbed({ url }) {
 
   useEffect(() => {
     let cancelled = false;
-    setReady(false);
 
     loadInstagramEmbed().then(() => {
       if (cancelled) return;
@@ -176,7 +175,7 @@ export default function SocialEmbed({ platform, url, caption }) {
   const normalized = platform?.toLowerCase();
 
   let embed;
-  if (normalized === 'instagram') embed = <InstagramEmbed url={url} />;
+  if (normalized === 'instagram') embed = <InstagramEmbed key={url} url={url} />;
   else if (normalized === 'x' || normalized === 'twitter') embed = <XEmbed url={url} />;
   else if (normalized === 'youtube') embed = <YouTubeEmbed url={url} />;
   else return null;

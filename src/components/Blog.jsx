@@ -12,21 +12,7 @@ const defaultFeaturedShare = {
   title: 'Why Crypto Traders Need an Information Edge: Introducing Kelucalls',
   description: 'A curated share from SEV discussing product architecture, AI tools, and community-driven growth for the Sevmeta portfolio.',
   href: 'https://x.com/kelucalls/status/2081719446440235109?s=20',
-  icon: XIcon,
   user_id: null,
-  id: 2,
-  platform: 'X',
-  author: '@sevmeta',
-  title: 'Sevmeta update: product strategy, growth, and Web3 systems',
-  description: 'A curated share from SEV discussing product architecture, AI tools, and community-driven growth for the Sevmeta portfolio.',
-  href: 'https://x.com/sevmeta/status/2021649744242630809?s=20',
-  icon: XIcon,
-  user_id: null,
-};
-
-const getShareIcon = (platform) => {
-  if (!platform) return XIcon;
-  return platform.toLowerCase().includes('insta') ? InstagramIcon : XIcon;
 };
 
 // Real posts to embed live from Instagram / X / YouTube.
@@ -68,8 +54,6 @@ export default function Blog() {
     author: defaultFeaturedShare.author,
   });
 
-  const FeaturedIcon = getShareIcon(featuredShare.platform);
-
   useEffect(() => {
     const fetchRecentPosts = async () => {
       const { data, error } = await supabase
@@ -91,7 +75,7 @@ export default function Blog() {
         .single();
 
       if (!shareError && data) {
-        setFeaturedShare({ ...data, icon: getShareIcon(data.platform) });
+        setFeaturedShare(data);
         setForm({
           title: data.title,
           description: data.description,
@@ -157,7 +141,7 @@ export default function Blog() {
     if (upsertError) {
       setError('Unable to save the featured share.');
     } else {
-      setFeaturedShare({ ...data, icon: getShareIcon(data.platform) });
+      setFeaturedShare(data);
       setIsEditing(false);
     }
 
@@ -225,7 +209,11 @@ export default function Blog() {
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex items-center gap-4">
               <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-violet-500/10 text-violet-300">
-                <FeaturedIcon className="h-6 w-6" />
+                {featuredShare.platform?.toLowerCase().includes('insta') ? (
+                  <InstagramIcon className="h-6 w-6" />
+                ) : (
+                  <XIcon className="h-6 w-6" />
+                )}
               </div>
               <div>
                 <p className="text-xs uppercase tracking-[0.3em] text-gray-500">Featured Share</p>

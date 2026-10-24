@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useForm, ValidationError } from "@formspree/react";
 import { supabase } from '../lib/supabaseClient';
+import { useI18n } from '../lib/i18n-context';
 
 export default function Newsletter() {
-  const [state, handleSubmit] = useForm("https://formspree.io/f/xlgraoqe"); // Replace with your Formspree form ID
+  const { t } = useI18n();
+  const [state, handleSubmit] = useForm("https://formspree.io/f/xlgraoqe");
   const [email, setEmail] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
@@ -12,22 +14,14 @@ export default function Newsletter() {
     setSubmitting(true);
 
     try {
-      // First, save to Supabase
-      const { error } = await supabase
-        .from('newsletter_subscribers')
-        .insert([
-          {
-            email: email,
-            subscribed_at: new Date().toISOString(),
-            source: 'blog_section'
-          }
-        ]);
+      const { error } = await supabase.from('newsletter_subscribers').insert([
+        { email, subscribed_at: new Date().toISOString(), source: 'blog_section' },
+      ]);
 
-      if (error && error.code !== '23505') { // Ignore duplicate key errors
+      if (error && error.code !== '23505') {
         console.error('Supabase error:', error);
       }
 
-      // Then submit to Formspree
       await handleSubmit(e);
     } catch (error) {
       console.error('Newsletter signup error:', error);
@@ -40,10 +34,8 @@ export default function Newsletter() {
     return (
       <div className="rounded-3xl border border-green-500/20 bg-green-500/10 p-8 text-center">
         <div className="mb-4 text-2xl">🎉</div>
-        <h3 className="text-xl font-semibold text-green-400 mb-2">Welcome aboard!</h3>
-        <p className="text-green-200">
-          Thanks for subscribing! You'll receive my latest thoughts and updates directly in your inbox.
-        </p>
+        <h3 className="text-xl font-semibold text-green-400 mb-2">{t("newsletter.welcome")}</h3>
+        <p className="text-green-200">{t("newsletter.thanks")}</p>
       </div>
     );
   }
@@ -52,11 +44,9 @@ export default function Newsletter() {
     <div className="rounded-3xl border border-violet-500/20 bg-[#14141a] p-8 transition-all duration-300 hover:border-violet-500/40 hover:shadow-lg hover:shadow-violet-500/10">
       <div className="text-center mb-6">
         <h3 className="text-2xl font-bold bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent mb-2">
-          Sevmeta Notes
+          {t("newsletter.title")}
         </h3>
-        <p className="text-gray-400">
-          Get product updates, launch news, and Web3 insights from the Sevmeta portfolio delivered straight to your inbox.
-        </p>
+        <p className="text-gray-400">{t("newsletter.description")}</p>
       </div>
 
       <form onSubmit={onSubmit} className="space-y-4">
@@ -65,7 +55,7 @@ export default function Newsletter() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email address"
+            placeholder={t("newsletter.email")}
             required
             className="flex-1 rounded-2xl border border-gray-700 bg-[#111111] px-4 py-3 text-white placeholder-gray-500 outline-none focus:border-violet-500 transition-colors"
           />
@@ -75,20 +65,13 @@ export default function Newsletter() {
             disabled={state.submitting || submitting}
             className="rounded-2xl bg-gradient-to-r from-violet-500 to-purple-600 px-6 py-3 font-semibold text-white transition-all duration-200 hover:from-violet-600 hover:to-purple-700 hover:scale-[1.03] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 whitespace-nowrap"
           >
-            {state.submitting || submitting ? 'Subscribing...' : 'Subscribe'}
+            {state.submitting || submitting ? t("newsletter.subscribing") : t("newsletter.subscribe")}
           </button>
         </div>
 
-        <ValidationError
-          prefix="Email"
-          field="email"
-          errors={state.errors}
-          className="text-red-400 text-sm"
-        />
+        <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-400 text-sm" />
 
-        <p className="text-xs text-gray-500 text-center">
-          No spam, unsubscribe anytime. Your email stays private.
-        </p>
+        <p className="text-xs text-gray-500 text-center">{t("newsletter.privacy")}</p>
       </form>
     </div>
   );
