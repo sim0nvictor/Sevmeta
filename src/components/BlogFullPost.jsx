@@ -4,6 +4,7 @@ import { supabase } from '../lib/supabaseClient';
 import { Heart, MessageCircle, Share, ArrowLeft, Send, Reply } from 'lucide-react';
 import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
+import Seo from './Seo';
 
 const buildShareUrl = (platform, title, url) => {
   const encodedText = encodeURIComponent(`${title} — Read this article`);
@@ -416,8 +417,15 @@ export function FullPost() {
   if (loading) return <div className="text-center py-20 text-gray-400">Loading post...</div>;
   if (!post) return <div className="text-center py-20 text-gray-400">Post not found</div>;
 
+  const postDescription =
+    post.excerpt ||
+    post.content?.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 160) ||
+    'Read the latest article from SEV on Sevmeta.';
+
   return (
-    <div className="min-h-screen bg-black text-white pb-20">
+    <>
+      <Seo title={`${post.title} | Sevmeta`} description={postDescription} />
+      <div className="min-h-screen bg-black text-white pb-20">
       <div className="max-w-3xl mx-auto px-6 py-12">
         {/* Back Button */}
         <button
@@ -536,6 +544,7 @@ export function FullPost() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

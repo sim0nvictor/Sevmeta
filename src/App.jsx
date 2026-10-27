@@ -18,6 +18,7 @@ import { FullPost } from "./components/BlogFullPost";
 import CreatePost from "./components/CreatePost";
 import Profile from "./components/Profile";
 import WebsiteAsService from "./components/WebsiteAsService";
+import Seo from "./components/Seo";
 
 const THEME_STORAGE_KEY = "sevmeta-theme";
 
@@ -69,6 +70,7 @@ export default function App() {
 
   return (
     <>
+      <Seo />
       <StarField />
       <Navigation theme={theme} onThemeToggle={toggleTheme} />
 

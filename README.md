@@ -47,3 +47,4 @@ provider explicitly supports them.
 - `src/lib/` — shared utilities and internationalization
 - `src/App.jsx` — application routes and page composition
 - `src/main.jsx` — application entry point
+- `public/robots.txt` and `public/sitemap.xml` — search crawler configuration and sitemap
